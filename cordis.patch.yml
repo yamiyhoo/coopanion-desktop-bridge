@@ -1,0 +1,19 @@
+# ============================================================================
+# coopanion-desktop-bridge — DSH bundle patch
+# ============================================================================
+# The mount declaration: DSH reads `dsh.bundle.patch` from package.json and
+# inserts the row below into the profile's config tree. `name` must match
+# package.json's `name` (DSH resolves the artifact by it), and `config.port`
+# is what the plugin reads in `apply` as its second argument.
+#
+# `required: false` on purpose: this plugin runs inside the desktop
+# application, and a bundle that cannot resolve must not be able to stop that
+# application from starting.
+# ============================================================================
+
+- insert:
+    - id: coopanion-desktop-bridge
+      name: coopanion-desktop-bridge
+      required: false
+      config:
+        port: 19400

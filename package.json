@@ -1,0 +1,57 @@
+{
+  "name": "coopanion-desktop-bridge",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Coopanion pet bridge for the DSH desktop application: the Host half lives inside the Electron process and opens its own loopback port, because the desktop Host serves no web server",
+  "main": "./dist/index.cjs",
+  "exports": {
+    ".": "./dist/index.cjs"
+  },
+  "sideEffects": true,
+  "files": [
+    "dist",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "coopanion",
+    "dsh",
+    "deepseek-harness",
+    "desktop-pet",
+    "bridge"
+  ],
+  "author": "Pal AI Lab",
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yamiyhoo/coopanion-desktop-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yamiyhoo/coopanion-desktop-bridge/issues"
+  },
+  "homepage": "https://github.com/yamiyhoo/coopanion-desktop-bridge#readme"
+}
